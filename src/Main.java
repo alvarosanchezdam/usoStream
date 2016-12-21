@@ -147,7 +147,12 @@ public class Main {
 
         System.out.println("SUMA DE TODAS LAS CANASTAS DE LOS JUGADORES AGRUPADOS POR EQUIPO");
         Map<Equipo, Integer> mapEquipo2 = jugadoresList.stream().collect(Collectors.groupingBy(Jugador::getEquipo, Collectors.summingInt(Jugador::getCanastas)));
-        System.out.println(mapEquipo2);
+        mapEquipo2.keySet().forEach(equip->{
+            System.out.println("");
+            System.out.println("Canastas totales de "+equip.getNombre());
+            System.out.println(mapEquipo2.get(equip));
+            System.out.println("");
+        });
         System.out.println("-----------------------");
     }
     public static void mostrarJugadores(List<Jugador> jugadores){
